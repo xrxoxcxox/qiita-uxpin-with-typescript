@@ -1,4 +1,4 @@
-section {
+.section {
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 24px;
@@ -8,7 +8,7 @@ section {
   color: #333;
 }
 
-h2 {
+.section h2 {
   font-weight: 900;
   font-size: 32px;
   line-height: 1;
@@ -17,21 +17,21 @@ h2 {
   vertical-align: top;
 }
 
-p {
+.section p {
   margin: 1em 0;
 }
 
-a {
+.section a {
   text-decoration: none;
   color: #1ea7fd;
 }
 
-ul {
+.section ul {
   padding-left: 30px;
   margin: 1em 0;
 }
 
-li {
+.section li {
   margin-bottom: 8px;
 }
 
