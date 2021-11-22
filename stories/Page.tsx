@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Header } from './Header';
-import styles from './page.module.css';
+import { css } from '@emotion/react';
 
 interface PageProps {
   user?: {};
@@ -14,7 +14,7 @@ export const Page = ({ user, onLogin, onLogout, onCreateAccount }: PageProps) =>
   <article>
     <Header user={user} onLogin={onLogin} onLogout={onLogout} onCreateAccount={onCreateAccount} />
 
-    <section className={styles.section}>
+    <section css={styles.section}>
       <h2>Pages in Storybook</h2>
       <p>
         We recommend building UIs with a{' '}
@@ -49,8 +49,8 @@ export const Page = ({ user, onLogin, onLogout, onCreateAccount }: PageProps) =>
         </a>
         .
       </p>
-      <div className={styles['tip-wrapper']}>
-        <span className={styles.tip}>Tip</span> Adjust the width of the canvas with the{' '}
+      <div css={styles['tip-wrapper']}>
+        <span css={styles.tip}>Tip</span> Adjust the width of the canvas with the{' '}
         <svg width="10" height="10" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
           <g fill="none" fillRule="evenodd">
             <path
@@ -65,3 +65,66 @@ export const Page = ({ user, onLogin, onLogout, onCreateAccount }: PageProps) =>
     </section>
   </article>
 );
+
+const styles = {
+  section: css`
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 48px 20px;
+    margin: 0 auto;
+    max-width: 600px;
+    color: #333;
+    h2 {
+      font-weight: 900;
+      font-size: 32px;
+      line-height: 1;
+      margin: 0 0 4px;
+      display: inline-block;
+      vertical-align: top;
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      text-decoration: none;
+      color: #1ea7fd;
+    }
+    ul {
+      padding-left: 30px;
+      margin: 1em 0;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+  `,
+  tip: css`
+    display: inline-block;
+    border-radius: 1em;
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: 700;
+    background: #e7fdd8;
+    color: #66bf3c;
+    padding: 4px 12px;
+    margin-right: 10px;
+    vertical-align: top;
+  `,
+  "tip-wrapper": css`
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    svg {
+      display: inline-block;
+      height: 12px;
+      width: 12px;
+      margin-right: 4px;
+      vertical-align: top;
+      margin-top: 3px;
+      path {
+        fill: #1ea7fd;
+      }
+    }
+  `
+}
