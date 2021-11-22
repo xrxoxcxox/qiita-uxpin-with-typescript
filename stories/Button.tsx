@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './button.module.css';
+import { css } from '@emotion/react';
 
 interface ButtonProps {
   /**
@@ -38,7 +38,7 @@ export const Button = ({
   return (
     <button
       type="button"
-      className={[styles['storybook-button'], styles[`storybook-button--${size}`], mode].join(' ')}
+      css={[styles['storybook-button'], styles[`storybook-button--${size}`], mode]}
       style={{ backgroundColor }}
       {...props}
     >
@@ -46,3 +46,36 @@ export const Button = ({
     </button>
   );
 };
+
+const styles = {
+  "storybook-button": css`
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    border: 0;
+    border-radius: 3em;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+  `,
+  "storybook-button--primary": css`
+    color: white;
+    background-color: #1ea7fd;
+  `,
+  "storybook-button--secondary": css`
+    color: #333;
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  `,
+  "storybook-button--small": css`
+    font-size: 12px;
+    padding: 10px 16px;
+  `,
+  "storybook-button--medium": css`
+    font-size: 14px;
+    padding: 11px 20px;
+  `,
+  "storybook-button--large": css`
+    font-size: 16px;
+    padding: 12px 24px;
+  `
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Button } from './Button';
-import styles from './header.module.css';
+import { css } from '@emotion/react';
 
 interface HeaderProps {
   user?: {};
@@ -12,9 +12,9 @@ interface HeaderProps {
 
 export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps) => (
   <header>
-    <div className={styles.wrapper}>
+    <div css={styles.wrapper}>
       <div>
-        <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" className={styles.svg}>
+        <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" css={styles.svg}>
           <g fill="none" fillRule="evenodd">
             <path
               d="M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z"
@@ -30,14 +30,14 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps
             />
           </g>
         </svg>
-        <h1 className={styles.h1}>Acme</h1>
+        <h1 css={styles.h1}>Acme</h1>
       </div>
       <div>
         {user ? (
           <Button size="small" onClick={onLogout} label="Log out" />
         ) : (
           <>
-            <div className={styles.buttons}>
+            <div css={styles.buttons}>
               <Button size="small" onClick={onLogin} label="Log in" />
               <Button primary size="small" onClick={onCreateAccount} label="Sign up" />
             </div>
@@ -47,3 +47,31 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps
     </div>
   </header>
 );
+
+const styles = {
+  wrapper: css`
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  `,
+  svg: css`
+    display: inline-block;
+    vertical-align: top;
+  `,
+  h1: css`
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 1;
+    margin: 6px 0 6px 10px;
+    display: inline-block;
+    vertical-align: top;
+  `,
+  buttons: css`
+    button + button {
+      margin-left: 10px;
+    }
+  `,  
+}
